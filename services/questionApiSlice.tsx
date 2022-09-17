@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-
+// https://stackoverflow.com/questions/71154190/mutate-state-with-dynamic-keys-in-createslice-method
 interface FormState<T> {
     isValid: boolean;
     answer: T;
