@@ -1,7 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 // https://stackoverflow.com/questions/71154190/mutate-state-with-dynamic-keys-in-createslice-method
 interface FormState<T> {
-    isValid: boolean;
     answer: T;
 }
 
@@ -17,14 +16,14 @@ export interface RootFormState {
 }
 
 const initialState: RootFormState = {
-    painLocated: { isValid: false, answer: '' },
-    painLength: { isValid: false, answer: '' },
-    cadHx: { isValid: false, answer: '' },
-    traumaticInjury: { isValid: false, answer: '' },
-    gallbladder: { isValid: false, answer: '' },
-    painWorsenDeepBreath:{ isValid: false, answer: '' },
-    feverOrCough: { isValid: false, answer: '' },
-    coumadin: { isValid: false, answer: '' }
+    painLocated: { answer: '' },
+    painLength: { answer: '' },
+    cadHx: { answer: '' },
+    traumaticInjury: { answer: '' },
+    gallbladder: {  answer: '' },
+    painWorsenDeepBreath:{ answer: '' },
+    feverOrCough: { answer: '' },
+    coumadin: { answer: '' }
 };
 
 type ValueOf<T> = T[keyof T];
