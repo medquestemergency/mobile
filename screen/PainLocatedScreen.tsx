@@ -2,14 +2,13 @@ import {SafeAreaView, Text, View} from "react-native";
 import {Card, Button} from "@rneui/themed";
 import {StyleSheet} from "react-native";
 import useNavigateToPainLengthScreen from "../hooks/navigate/useNavigateToPainLengthScreen";
-import {appendPainLocation} from "../services/questionApiSlice";
 import useQuestionCallback from "../hooks/useQuestionCallback";
 
 export default () => {
 
     const onPress = useQuestionCallback(
         useNavigateToPainLengthScreen(),
-        appendPainLocation
+        'painLocated'
     )
 
     return <SafeAreaView style={{flex: 1}}>

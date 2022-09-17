@@ -3,12 +3,11 @@ import {Card, Button} from "@rneui/themed";
 import {StyleSheet} from "react-native";
 import useNavigateToTraumaticInjuryScreen from "../hooks/navigate/useNavigateToTraumaticInjuryScreen";
 import useQuestionCallback from "../hooks/useQuestionCallback";
-import {appendCAD_HX} from "../services/questionApiSlice";
 
 export default () => {
     const onPress = useQuestionCallback(
         useNavigateToTraumaticInjuryScreen(),
-        appendCAD_HX
+        'cadHx'
     )
 
     return <SafeAreaView style={{flex: 1}}>

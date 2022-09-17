@@ -3,13 +3,14 @@ import {Card, Button} from "@rneui/themed";
 import {StyleSheet} from "react-native";
 import useNavigateToMainScreen from "../hooks/navigate/useNavigateToMainScreen";
 import useQuestionCallback from "../hooks/useQuestionCallback";
-import {appendCoumadin} from "../services/questionApiSlice";
 export default () => {
-    //todo use navigate to thank you screen
+
+
     const onPress = useQuestionCallback(
         useNavigateToMainScreen(),
-        appendCoumadin
+        'coumadin'
     );
+
     return <SafeAreaView style={{flex: 1}}>
         <Card>
             <Card.Title>Do you take Coumadin?</Card.Title>

@@ -1,15 +1,17 @@
 import {useAppDispatch} from "../app/hooks";
-import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
+import {RootFormState, updateAnswer} from "../services/questionApiSlice";
+import {ValueOf} from "react-native-gesture-handler/lib/typescript/typeUtils";
 
 export default (
     navigate: () => void,
-    action: ActionCreatorWithPayload<any, string>
-):(string: any) => void => {
+    id: keyof RootFormState
+): (answer: any) => void => {
+
     const dispatch = useAppDispatch();
-    const onPress = (answer:string) => {
-        dispatch(action(answer));
+
+    const onPress = (answer: ValueOf<RootFormState>['answer']) => {
+        dispatch(updateAnswer({id, answer}));
         navigate()
     }
     return onPress;
-
 }

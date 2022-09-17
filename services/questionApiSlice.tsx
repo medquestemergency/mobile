@@ -1,68 +1,54 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
-export interface questionState {
-    painLocated: string,
-    painLength: string,
-    cadHx: string,
-    traumaticInjury:string,
-    gallbladder:string,
-    painWorsenDeepBreath:string,
-    feverOrCough:string,
-    coumadin:string
+interface FormState<T> {
+    isValid: boolean;
+    answer: T;
 }
 
-const initialState: questionState = {
-    painLocated: '',
-    painLength: '',
-    cadHx:'',
-    traumaticInjury:'',
-    gallbladder:'',
-    painWorsenDeepBreath:'',
-    feverOrCough:'',
-    coumadin:''
+export interface RootFormState {
+    painLocated: FormState<string>;
+    painLength: FormState<string>;
+    cadHx: FormState<string>;
+    traumaticInjury: FormState<string>;
+    gallbladder: FormState<string>;
+    painWorsenDeepBreath: FormState<string>;
+    feverOrCough: FormState<string>;
+    coumadin: FormState<string>;
+}
+
+const initialState: RootFormState = {
+    painLocated: { isValid: false, answer: '' },
+    painLength: { isValid: false, answer: '' },
+    cadHx: { isValid: false, answer: '' },
+    traumaticInjury: { isValid: false, answer: '' },
+    gallbladder: { isValid: false, answer: '' },
+    painWorsenDeepBreath:{ isValid: false, answer: '' },
+    feverOrCough: { isValid: false, answer: '' },
+    coumadin: { isValid: false, answer: '' }
 };
+
+type ValueOf<T> = T[keyof T];
 
 const questionSlice = createSlice({
     name: "question",
     initialState,
     reducers: {
-        appendPainLocation:(state,action) => {
-            state.painLocated = action.payload;
+        updateAnswer: (
+            state,
+            action: PayloadAction<{ id: keyof RootFormState; answer: ValueOf<RootFormState>['answer'] }>,
+        ) => {
+            const { id, answer } = action.payload;
+            state[id].answer = answer;
+            console.log(state,"THE STATE OF AFFAIRS")
         },
-        appendPainLength:(state,action) => {
-            state.painLength = action.payload;
-        },
-        appendCAD_HX:(state,action) => {
-            state.cadHx = action.payload;
-        },
-        appendTraumaticInjury:(state,action) => {
-            state.traumaticInjury = action.payload;
-        },
-        appendGallbladder:(state,action) => {
-            state.gallbladder = action.payload;
-        },
-        appendPainWorsenDeepBreath:(state,action) => {
-            state.painWorsenDeepBreath = action.payload;
-        },
-        appendFeverOrCough:(state,action) => {
-            state.feverOrCough = action.payload;
-        },
-        appendCoumadin:(state,action) => {
-            state.coumadin = action.payload;
-            console.log(state,"coummaa")
-        }
+
     },
 });
 
+
 export const {
-    appendPainLocation,
-    appendPainLength,
-    appendCAD_HX,
-    appendTraumaticInjury,
-    appendGallbladder,
-    appendPainWorsenDeepBreath,
-    appendFeverOrCough,
-    appendCoumadin
+    updateAnswer
 } = questionSlice.actions;
 
 export default questionSlice.reducer;
+

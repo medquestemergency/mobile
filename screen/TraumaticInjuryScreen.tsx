@@ -3,13 +3,14 @@ import {Card, Button} from "@rneui/themed";
 import {StyleSheet} from "react-native";
 import useNavigateToGallbladderScreen from "../hooks/navigate/useNavigateToGallbladderScreen";
 import useQuestionCallback from "../hooks/useQuestionCallback";
-import {appendTraumaticInjury} from "../services/questionApiSlice";
 
 export default () => {
+
     const onPress = useQuestionCallback(
         useNavigateToGallbladderScreen(),
-        appendTraumaticInjury
-        );
+        'traumaticInjury'
+    );
+
     return <SafeAreaView style={{flex: 1}}>
         <Card>
             <Card.Title>Did your pain start after a traumatic injury?</Card.Title>

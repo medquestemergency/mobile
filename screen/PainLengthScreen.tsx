@@ -1,7 +1,6 @@
 import {SafeAreaView, Text, View} from "react-native";
 import {Card, Button} from "@rneui/themed";
 import {StyleSheet} from "react-native";
-import {appendPainLength} from "../services/questionApiSlice";
 import useQuestionCallback from "../hooks/useQuestionCallback";
 import useNavigateToCAD_HxScreen from "../hooks/navigate/useNavigateToCAD_HxScreen";
 
@@ -9,9 +8,8 @@ export default () => {
 
     const onPress = useQuestionCallback(
         useNavigateToCAD_HxScreen(),
-        appendPainLength
+        'painLength'
     )
-
     return <SafeAreaView style={{flex: 1}}>
         <Card>
             <Card.Title>How long has your pain been present?</Card.Title>

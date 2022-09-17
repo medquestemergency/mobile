@@ -3,13 +3,14 @@ import {Card, Button} from "@rneui/themed";
 import {StyleSheet} from "react-native";
 import useNavigateToCoumadinScreen from "../hooks/navigate/useNavigateToCoumadinScreen";
 import useQuestionCallback from "../hooks/useQuestionCallback";
-import {appendFeverOrCough} from "../services/questionApiSlice";
 
 export default () => {
+
     const onPress = useQuestionCallback(
         useNavigateToCoumadinScreen(),
-        appendFeverOrCough
+        'feverOrCough'
     );
+
     return <SafeAreaView style={{flex: 1}}>
         <Card>
             <Card.Title>Have you had a fever or cough?</Card.Title>

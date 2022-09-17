@@ -3,12 +3,12 @@ import {Card, Button} from "@rneui/themed";
 import {StyleSheet} from "react-native";
 import useNavigateToFeverOrCoughScreen from "../hooks/navigate/useNavigateToFeverOrCoughScreen";
 import useQuestionCallback from "../hooks/useQuestionCallback";
-import { appendPainWorsenDeepBreath} from "../services/questionApiSlice";
 
 export default () => {
+
     const onPress = useQuestionCallback(
         useNavigateToFeverOrCoughScreen(),
-        appendPainWorsenDeepBreath
+        'painWorsenDeepBreath'
     );
 
     return <SafeAreaView style={{flex: 1}}>
