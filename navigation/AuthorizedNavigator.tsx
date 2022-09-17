@@ -1,7 +1,7 @@
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
 import {Button, Icon, useTheme} from "@rneui/themed";
-import MainScreen from "../screen/MainScreen";
+import MainScreen from "../screen/PainLocatedScreen";
 import PainLengthScreen from "../screen/PainLengthScreen";
 import CAD_HxScreen from "../screen/CAD_HxScreen";
 import TraumaticInjuryScreen from "../screen/TraumaticInjuryScreen";

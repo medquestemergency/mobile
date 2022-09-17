@@ -1,13 +1,10 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query/react";
 import {apiSlice} from "./api/apiSlice";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import questionReducer from "../services/questionApiSlice";
 
 const reducer = combineReducers({
-  // cart: cartReducer,
-  // auth: authReducer,
-  // menu: menuReducer,
+  question: questionReducer,
   [apiSlice.reducerPath]: apiSlice.reducer,
 });
 
