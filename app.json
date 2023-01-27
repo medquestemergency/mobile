@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "medquestrnexpo",
-    "slug": "medquestrnexpo",
+    "name": "Med Quest",
+    "slug": "medQuest",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,7 +18,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.michaeljamieson10.medQuest"
     },
     "android": {
       "adaptiveIcon": {
@@ -28,6 +29,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f04f26d3-7439-45fc-adbf-3a808fab91c5"
+      }
     }
   }
 }

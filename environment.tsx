@@ -1,4 +1,3 @@
-import Constants from 'expo-constants';
 import * as Updates from 'expo-updates';
 
 const ENV = {
