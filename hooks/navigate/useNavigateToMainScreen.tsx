@@ -2,13 +2,13 @@ import {NativeStackNavigationProp} from "@react-navigation/native-stack";
 import {useNavigation} from "@react-navigation/native";
 import {AuthorizedParamList} from "../../navigation/AuthorizedNavigator";
 
-type ScreenProp = NativeStackNavigationProp<AuthorizedParamList, 'Main'>;
+type ScreenProp = NativeStackNavigationProp<AuthorizedParamList, 'Age'>;
 
 export default (): () => void => {
 
     const navigation = useNavigation<ScreenProp>();
 
-    const handleNavigate = () => navigation.navigate("Main");
+    const handleNavigate = () => navigation.navigate("Age");
 
     return handleNavigate;
 

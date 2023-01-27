@@ -5,6 +5,7 @@ interface FormState<T> {
 }
 
 export interface RootFormState {
+    age: FormState<number>;
     painLocated: FormState<string>;
     painLength: FormState<string>;
     cadHx: FormState<string>;
@@ -16,6 +17,7 @@ export interface RootFormState {
 }
 
 const initialState: RootFormState = {
+    age: { answer: -1 },
     painLocated: { answer: '' },
     painLength: { answer: '' },
     cadHx: { answer: '' },

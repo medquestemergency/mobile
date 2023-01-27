@@ -1,7 +1,6 @@
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
 import {Button, Icon, useTheme} from "@rneui/themed";
-import MainScreen from "../screen/PainLocatedScreen";
 import PainLengthScreen from "../screen/PainLengthScreen";
 import CAD_HxScreen from "../screen/CAD_HxScreen";
 import TraumaticInjuryScreen from "../screen/TraumaticInjuryScreen";
@@ -9,9 +8,10 @@ import GallbladderScreen from "../screen/GallbladderScreen";
 import PainWorsenDeepBreathScreen from "../screen/PainWorsenDeepBreathScreen";
 import FeverOrCoughScreen from "../screen/FeverOrCoughScreen";
 import CoumadinScreen from "../screen/CoumadinScreen";
+import AgeScreen from "../screen/AgeScreen";
 
 export type AuthorizedParamList = {
-    Main: undefined;
+    Age: undefined;
     PainLength: undefined;
     CAD_Hx: undefined;
     TraumaticInjury: undefined;
@@ -28,11 +28,11 @@ export default () => {
 
     return (
         <Stack.Navigator
-            initialRouteName='Main'
+            initialRouteName='Age'
         >
             <Stack.Screen
-                name='Main'
-                component={MainScreen}
+                name='Age'
+                component={AgeScreen}
                 options={{
                     headerShown: false
                     // headerTitle: (props) => <LogoTitle />,
