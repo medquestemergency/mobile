@@ -9,9 +9,12 @@ import PainWorsenDeepBreathScreen from "../screen/PainWorsenDeepBreathScreen";
 import FeverOrCoughScreen from "../screen/FeverOrCoughScreen";
 import CoumadinScreen from "../screen/CoumadinScreen";
 import AgeScreen from "../screen/AgeScreen";
+import PainLocatedScreen from "../screen/PainLocatedScreen";
+import ResultScreen from "../screen/ResultScreen";
 
 export type AuthorizedParamList = {
     Age: undefined;
+    PainLocated: undefined;
     PainLength: undefined;
     CAD_Hx: undefined;
     TraumaticInjury: undefined;
@@ -19,6 +22,7 @@ export type AuthorizedParamList = {
     PainWorsenDeep: undefined;
     FeverOrCough: undefined;
     Coumadin: undefined;
+    Result: undefined;
 };
 
 const Stack = createNativeStackNavigator<AuthorizedParamList>();
@@ -43,7 +47,13 @@ export default () => {
                 component={PainLengthScreen}
                 options={{
                     headerShown: false
-                    // headerTitle: (props) => <LogoTitle />,
+                }}
+            />
+            <Stack.Screen
+                name='PainLocated'
+                component={PainLocatedScreen}
+                options={{
+                    headerShown: false
                 }}
             />
             <Stack.Screen
@@ -90,6 +100,14 @@ export default () => {
             <Stack.Screen
                 name='Coumadin'
                 component={CoumadinScreen}
+                options={{
+                    headerShown: false
+                    // headerTitle: (props) => <LogoTitle />,
+                }}
+            />
+            <Stack.Screen
+                name='Result'
+                component={ResultScreen}
                 options={{
                     headerShown: false
                     // headerTitle: (props) => <LogoTitle />,

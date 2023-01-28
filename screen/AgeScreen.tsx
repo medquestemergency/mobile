@@ -1,14 +1,15 @@
 import {SafeAreaView, Text, TextInput, View} from "react-native";
 import {Card, Button} from "@rneui/themed";
 import {StyleSheet} from "react-native";
-import useNavigateToPainLengthScreen from "../hooks/navigate/useNavigateToPainLengthScreen";
+
 import useQuestionCallback from "../hooks/useQuestionCallback";
 import {useState} from "react";
+import useNavigateToPainLocatedScreen from "../hooks/navigate/useNavigateToPainLocatedScreen";
 
 export default () => {
 
     const onPress = useQuestionCallback(
-        useNavigateToPainLengthScreen(),
+        useNavigateToPainLocatedScreen(),
         'age'
     )
     const [inputValue, setInputValue] = useState<string>('');

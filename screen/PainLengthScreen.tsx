@@ -13,7 +13,7 @@ export default () => {
     return <SafeAreaView style={{flex: 1}}>
         <Card>
             <Card.Title>How long has your pain been present?</Card.Title>
-            <Button onPress={() => onPress("Less than one day")} style={styles.button}>Less than one day</Button>
+            <Button onPress={() => onPress("Less than 1 day")} style={styles.button}>Less than one day</Button>
             <Button onPress={() => onPress("2-7 days")} style={styles.button}>2-7 days</Button>
             <Button onPress={() => onPress("Greater than a week")} style={styles.button}>Greater than a week</Button>
         </Card>

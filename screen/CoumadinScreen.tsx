@@ -1,13 +1,12 @@
 import {SafeAreaView, Text, View} from "react-native";
 import {Card, Button} from "@rneui/themed";
 import {StyleSheet} from "react-native";
-import useNavigateToMainScreen from "../hooks/navigate/useNavigateToMainScreen";
 import useQuestionCallback from "../hooks/useQuestionCallback";
+import useNavigateToResultScreen from "../hooks/navigate/useNavigateToResultScreen";
 export default () => {
 
-
     const onPress = useQuestionCallback(
-        useNavigateToMainScreen(),
+        useNavigateToResultScreen(),
         'coumadin'
     );
 

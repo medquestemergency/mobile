@@ -1,8 +1,7 @@
-import {UserDTO} from "../dto/UserDTO";
 
 export class UserClass {
     constructor(
-        private readonly userDTO:UserDTO
+        // private readonly userDTO:UserDTO
     )
     {}
     // get fullName():string {
