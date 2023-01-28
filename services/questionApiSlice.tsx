@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 // https://stackoverflow.com/questions/71154190/mutate-state-with-dynamic-keys-in-createslice-method
-interface FormState<T, G = undefined> {
+export interface FormState<T, G = undefined> {
     answer: T;
     result?: G;
 }
@@ -67,7 +67,6 @@ const algorithmFactory = (algorithmInterface:AlgorithmInterface) => {
         case 'age':
             return algorithmReturnAnswerAsResult(algorithmInterface);
         case 'painLocated':
-            console.log("JFASHFHASCALLED", algorithmInterface)
             return algorithmPainLocated(algorithmInterface);
         case 'painLength':
             return algorithmReturnAnswerAsResult(algorithmInterface);
@@ -81,6 +80,8 @@ const algorithmFactory = (algorithmInterface:AlgorithmInterface) => {
             return algorithmFeverOrCough(algorithmInterface);
         case 'coumadin':
             return algorithmCoumadin(algorithmInterface);
+        case 'traumaticInjury':
+            return algorithmTraumaticInjury(algorithmInterface);
         default:
             return error + " with factory";
     }
@@ -119,6 +120,13 @@ const algorithmCadHX = (algorithmInterface:AlgorithmInterface) => {
 }
 
 const algorithmGallbladder = (algorithmInterface:AlgorithmInterface) => {
+    const { action} = algorithmInterface;
+    const answer = getAnswer(algorithmInterface);
+    if(answer.includes("Yes")) return "Add on lipase to labs";
+    else return noResponse;
+}
+
+const algorithmTraumaticInjury = (algorithmInterface:AlgorithmInterface) => {
     const { action} = algorithmInterface;
     const answer = getAnswer(algorithmInterface);
     if(answer.includes("Yes")) return "Add on lipase to labs";

@@ -1,20 +1,17 @@
 import {SafeAreaView, Text, TextInput, View} from "react-native";
 import {Card, Button} from "@rneui/themed";
 import {StyleSheet} from "react-native";
-
-import useQuestionCallback from "../hooks/useQuestionCallback";
-import {useEffect, useState} from "react";
-import useNavigateToPainLocatedScreen from "../hooks/navigate/useNavigateToPainLocatedScreen";
 import {useAppSelector} from "../app/hooks";
 import {RootState} from "../app/store";
+import ResultView from "../components/ResultView";
 
 export default () => {
-    const myData = useAppSelector((state: RootState) => state);
-    useEffect(()=>{console.log(myData,"DASDASDASDASDASDA")},[myData])
+    const data = useAppSelector((state: RootState) => state);
 
     return <SafeAreaView style={{flex: 1}}>
         <Card>
             <Card.Title>RESULTS PAGE</Card.Title>
+            {Object.entries(data.question).map(([key, value], index) => <ResultView name={key} formState={value} key={key + index}/>)}
         </Card>
     </SafeAreaView>
 }
