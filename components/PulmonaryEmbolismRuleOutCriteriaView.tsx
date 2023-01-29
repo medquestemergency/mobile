@@ -1,4 +1,3 @@
-import {FormState} from "../services/questionApiSlice";
 import {Card} from "@rneui/themed";
 import {View, Text} from "react-native";
 import {PulmonaryEmbolismRuleOutCriteriaFormData} from "../screen/PulmonaryEmbolismRuleOutCriteriaScreen";
