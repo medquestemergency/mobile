@@ -11,11 +11,13 @@ import CoumadinScreen from "../screen/CoumadinScreen";
 import AgeScreen from "../screen/AgeScreen";
 import PainLocatedScreen from "../screen/PainLocatedScreen";
 import ResultScreen from "../screen/ResultScreen";
+import PulmonaryEmbolismRuleOutCriteriaScreen from "../screen/PulmonaryEmbolismRuleOutCriteriaScreen";
 
 export type AuthorizedParamList = {
     Age: undefined;
     PainLocated: undefined;
     PainLength: undefined;
+    PulmonaryEmbolismRuleOutCriteria: undefined;
     CAD_Hx: undefined;
     TraumaticInjury: undefined;
     Gallbladder: undefined;
@@ -84,6 +86,14 @@ export default () => {
             <Stack.Screen
                 name='PainWorsenDeep'
                 component={PainWorsenDeepBreathScreen}
+                options={{
+                    headerShown: false
+                    // headerTitle: (props) => <LogoTitle />,
+                }}
+            />
+            <Stack.Screen
+                name='PulmonaryEmbolismRuleOutCriteria'
+                component={PulmonaryEmbolismRuleOutCriteriaScreen}
                 options={{
                     headerShown: false
                     // headerTitle: (props) => <LogoTitle />,
