@@ -5,9 +5,13 @@ import useNavigateToPainLengthScreen from "../hooks/navigate/useNavigateToPainLe
 import useQuestionCallback from "../hooks/useQuestionCallback";
 import {useForm, Controller} from 'react-hook-form';
 import {useState} from "react";
+import useNavigateToTraumaticInjuryScreen from "../hooks/navigate/useNavigateToTraumaticInjuryScreen";
+import {useAppDispatch} from "../app/hooks";
+import {updateAnswer} from "../services/pulmonaryEmbolismRuleOutCriteriaSlice";
+import useNavigateToFeverOrCoughScreen from "../hooks/navigate/useNavigateToFeverOrCoughScreen";
 
 
-type FormData = {
+export type PulmonaryEmbolismRuleOutCriteriaFormData = {
     legEdema: boolean;
     historyOfDVT: boolean;
     vitalSigns: boolean;
@@ -18,7 +22,7 @@ type FormData = {
 
 
 export default () => {
-    const [formData, setFormData] = useState<FormData>({
+    const [formData, setFormData] = useState<PulmonaryEmbolismRuleOutCriteriaFormData>({
         legEdema: false,
         historyOfDVT: false,
         vitalSigns: false,
@@ -27,9 +31,14 @@ export default () => {
         recentSurgery: false
     });
     const { handleSubmit, register } = useForm();
+    const dispatch = useAppDispatch();
+    const navigate = useNavigateToFeverOrCoughScreen();
 
-    const onSubmit = (data: FormData) => {
-        console.log("Form data:", data);
+    const onSubmit = (data: PulmonaryEmbolismRuleOutCriteriaFormData) => {
+        dispatch(updateAnswer({
+            formData: formData,
+        }));
+        navigate();
     };
 
     return (

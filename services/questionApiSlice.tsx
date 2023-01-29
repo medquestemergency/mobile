@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {PulmonaryEmbolismRuleOutCriteriaFormData} from "../screen/PulmonaryEmbolismRuleOutCriteriaScreen";
 // https://stackoverflow.com/questions/71154190/mutate-state-with-dynamic-keys-in-createslice-method
 export interface FormState<T, G = undefined> {
     answer: T;
@@ -13,6 +14,7 @@ export interface RootFormState {
     traumaticInjury: FormState<string,string>;
     gallbladder: FormState<string,string>;
     painWorsenDeepBreath: FormState<string,string>;
+    // pulmonaryEmbolismRuleOutCriteria:FormState<PulmonaryEmbolismRuleOutCriteriaFormData | null,string>;
     feverOrCough: FormState<string,string>;
     coumadin: FormState<string,string>;
 }
@@ -25,6 +27,7 @@ const initialState: RootFormState = {
     traumaticInjury: { answer: '', result:'' },
     gallbladder: {  answer: '', result:'' },
     painWorsenDeepBreath:{ answer: '', result:'' },
+    // pulmonaryEmbolismRuleOutCriteria:{answer: null, result:''},
     feverOrCough: { answer: '', result:'' },
     coumadin: { answer: '', result:'' }
 };
@@ -138,7 +141,7 @@ const algorithmPainWorsenDeepBreath = (algorithmInterface:AlgorithmInterface) =>
     const {state, action} = algorithmInterface;
     const age = getAge(state);
     const answer = getAnswer(algorithmInterface);
-    if(age <= 50){
+    if(age >= 50){
         if(answer.includes("Yes")) return "50 then obtain DDimer, if all negative PE ruled out";
     }
     return "";

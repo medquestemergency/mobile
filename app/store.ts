@@ -2,9 +2,11 @@ import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query/react";
 import {apiSlice} from "./api/apiSlice";
 import questionReducer from "../services/questionApiSlice";
+import pulmonaryEmbolismRuleOutCriteriaReducer from "../services/pulmonaryEmbolismRuleOutCriteriaSlice";
 
 const reducer = combineReducers({
   question: questionReducer,
+  pulmonaryEmbolismRuleOutCriteria: pulmonaryEmbolismRuleOutCriteriaReducer,
   [apiSlice.reducerPath]: apiSlice.reducer,
 });
 
