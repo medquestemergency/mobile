@@ -12,6 +12,10 @@ export default () => {
         useNavigateToPainLocatedScreen(),
         'age'
     )
+    const handleSubmit = () => {
+        if(inputValue.trim() == "" ) return;
+        onPress(inputValue);
+    }
     const [inputValue, setInputValue] = useState<string>('');
 
     const handleChange = (value: string) => {
@@ -29,7 +33,7 @@ export default () => {
                 onChangeText={handleChange}
                 keyboardType="numeric"
             />
-            <Button onPress={()=>onPress(inputValue)} style={styles.button}>Submit</Button>
+            <Button onPress={handleSubmit} style={styles.button}>Submit</Button>
         </Card>
     </SafeAreaView>
 }
