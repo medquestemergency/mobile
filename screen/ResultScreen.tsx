@@ -10,7 +10,7 @@ export default () => {
     const questionData = useAppSelector((state: RootState) => state.question);
     const pulmonaryEmbolismRuleOutCriteriaData = useAppSelector((state: RootState) => state.pulmonaryEmbolismRuleOutCriteria);
 
-    return <SafeAreaView style={{flex: 1}}>
+    return <SafeAreaView style={{backgroundColor: "#3fcc57", flex: 1}}>
         <ScrollView>
             <Card>
                 <Card.Title>RESULTS PAGE</Card.Title>

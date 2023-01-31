@@ -6,6 +6,7 @@ import {ThemeProvider} from "@rneui/themed";
 import {theme} from "./theme/rneuiTheme";
 import AuthorizedNavigator from "./navigation/AuthorizedNavigator";
 import {store} from "./app/store";
+import '@expo/match-media'
 
 export default function App() {
 
