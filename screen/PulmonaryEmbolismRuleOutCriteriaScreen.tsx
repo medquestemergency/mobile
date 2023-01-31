@@ -1,11 +1,8 @@
 import {SafeAreaView, Switch, Text, TouchableOpacity, View} from "react-native";
 import {Card, Button} from "@rneui/themed";
 import {StyleSheet} from "react-native";
-import useNavigateToPainLengthScreen from "../hooks/navigate/useNavigateToPainLengthScreen";
-import useQuestionCallback from "../hooks/useQuestionCallback";
 import {useForm, Controller} from 'react-hook-form';
 import {useState} from "react";
-import useNavigateToTraumaticInjuryScreen from "../hooks/navigate/useNavigateToTraumaticInjuryScreen";
 import {useAppDispatch} from "../app/hooks";
 import {updateAnswer} from "../services/pulmonaryEmbolismRuleOutCriteriaSlice";
 import useNavigateToFeverOrCoughScreen from "../hooks/navigate/useNavigateToFeverOrCoughScreen";
@@ -100,7 +97,7 @@ export default () => {
 const styles = StyleSheet.create({
     container: {
         alignItems: "center",
-        marginTop: 20
+        marginTop: 20,
     },
     inputContainer: {
         flexDirection: "row",

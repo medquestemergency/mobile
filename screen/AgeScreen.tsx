@@ -1,12 +1,12 @@
-import {SafeAreaView, Text, TextInput, View} from "react-native";
-import {Card, Button} from "@rneui/themed";
+import {Dimensions, SafeAreaView, Text, TextInput, View} from "react-native";
+import {Card, Button, useTheme} from "@rneui/themed";
 import {StyleSheet} from "react-native";
 
 import useQuestionCallback from "../hooks/useQuestionCallback";
 import {useState} from "react";
 import useNavigateToPainLocatedScreen from "../hooks/navigate/useNavigateToPainLocatedScreen";
-
 export default () => {
+    const theme = useTheme();
 
     const onPress = useQuestionCallback(
         useNavigateToPainLocatedScreen(),
@@ -24,8 +24,8 @@ export default () => {
     };
 
 
-    return <SafeAreaView style={{flex: 1}}>
-        <Card>
+    return <SafeAreaView style={[{backgroundColor: theme.theme.colors.primary,flex: 1},styles.container]}>
+        <Card containerStyle={{width: 600, borderRadius:30,marginTop:50}}>
             <Card.Title>Age</Card.Title>
             <TextInput
                 style={styles.input}
@@ -39,14 +39,22 @@ export default () => {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        alignItems: "center",
+        marginTop: 20,
+    },
     input: {
         height: 40,
         margin: 12,
         borderWidth: 1,
         padding: 10,
+        alignSelf:"center",
+        width:200
     },
         button: {
         borderRadius: 6,
         margin: 5,
+            alignSelf:"center",
+            width:250
     }
 });

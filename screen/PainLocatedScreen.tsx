@@ -1,8 +1,9 @@
-import {SafeAreaView, Text, View} from "react-native";
+import {Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {Card, Button} from "@rneui/themed";
 import {StyleSheet} from "react-native";
 import useNavigateToPainLengthScreen from "../hooks/navigate/useNavigateToPainLengthScreen";
 import useQuestionCallback from "../hooks/useQuestionCallback";
+import {ImageAssets} from "../assets/ImageAssets";
 
 export default () => {
 
@@ -12,13 +13,24 @@ export default () => {
     )
 
     return <SafeAreaView style={{flex: 1}}>
-        <Card>
-            <Card.Title>Where is your pain located?</Card.Title>
-            <Button onPress={() => onPress("Left Chest")} style={styles.button}>Left Chest</Button>
-            <Button onPress={() => onPress("Right Chest")} style={styles.button}>Right Chest</Button>
-            <Button onPress={() => onPress("Substernal")} style={styles.button}>Substernal</Button>
-            <Button onPress={() => onPress("Epigastric")} style={styles.button}>Epigastric</Button>
-        </Card>
+        <ScrollView>
+            <Card>
+                <Card.Title>Where is your pain located?</Card.Title>
+                <TouchableOpacity onPress={() => onPress("Left Chest")}>
+                    <Image source={ImageAssets.leftChestPain}/>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => onPress("Right Chest")}>
+                    <Image source={ImageAssets.rightChestPain}/>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => onPress("Substernal")}>
+                    <Image source={ImageAssets.rightChestPain}/>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => onPress("Epigastric")}>
+                    <Image source={ImageAssets.epigastricPain}/>
+                </TouchableOpacity>
+            </Card>
+        </ScrollView>
     </SafeAreaView>
 }
 
