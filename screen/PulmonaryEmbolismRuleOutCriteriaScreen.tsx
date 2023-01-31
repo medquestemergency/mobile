@@ -43,8 +43,6 @@ export default () => {
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <Card>
-                <Card.Title>PERC?</Card.Title>
                 <View style={styles.container}>
                     <View style={styles.inputContainer}>
                         <Text style={styles.inputLabel}>Do you have any unilateral leg edema?</Text>
@@ -90,7 +88,6 @@ export default () => {
                     </View>
                         <Button onPress={handleSubmit(() => onSubmit(formData))}>Submit</Button>
                 </View>
-            </Card>
         </SafeAreaView>
     );
 };
