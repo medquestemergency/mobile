@@ -1,4 +1,4 @@
-import {SafeAreaView, Switch, Text, TouchableOpacity, View} from "react-native";
+import {Dimensions, SafeAreaView, Switch, Text, TouchableOpacity, View} from "react-native";
 import {Card, Button} from "@rneui/themed";
 import {StyleSheet} from "react-native";
 import {useForm, Controller} from 'react-hook-form';
@@ -37,26 +37,31 @@ export default () => {
         }));
         navigate();
     };
+    const {width, height} = Dimensions.get('window');
+    const isTablet = width >= 768;
+
+    const styleForInputContainer = isTablet ? styles.inputTabletContainer : styles.inputPhoneContainer
 
     return (
         <SafeAreaView style={{flex: 1}}>
-            <Card>
+            {/*<Card>*/}
                 <View style={styles.container}>
-                    <View style={styles.inputContainer}>
+
+                    <View style={styleForInputContainer}>
                         <Text style={styles.inputLabel}>Do you have any unilateral leg edema?</Text>
                         <Switch
                             value={formData.legEdema}
                             onValueChange={value => setFormData({...formData, legEdema: value})}
                         />
                     </View>
-                    <View style={styles.inputContainer}>
+                    <View style={styleForInputContainer}>
                         <Text style={styles.inputLabel}>Do you have any personal history of DVT/PE??</Text>
                         <Switch
                             value={formData.historyOfDVT}
                             onValueChange={value => setFormData({...formData, historyOfDVT: value})}
                         />
                     </View>
-                    <View style={styles.inputContainer}>
+                    <View style={styleForInputContainer}>
                         <Text style={styles.inputLabel}>Are triage vital signs Heart Rate {">"} 100 or
                             SPO2 {"<"}95%?</Text>
                         <Switch
@@ -64,14 +69,14 @@ export default () => {
                             onValueChange={value => setFormData({...formData, vitalSigns: value})}
                         />
                     </View>
-                    <View style={styles.inputContainer}>
+                    <View style={styleForInputContainer}>
                         <Text style={styles.inputLabel}>Have you noticed any bloody cough?</Text>
                         <Switch
                             value={formData.bloodyCough}
                             onValueChange={value => setFormData({...formData, bloodyCough: value})}
                         />
                     </View>
-                    <View style={styles.inputContainer}>
+                    <View style={styleForInputContainer}>
                         <Text style={styles.inputLabel}>Do you take any hormone therapy including oral
                             contraceptives?</Text>
                         <Switch
@@ -79,9 +84,10 @@ export default () => {
                             onValueChange={value => setFormData({...formData, hormoneTherapy: value})}
                         />
                     </View>
-                    <View style={styles.inputContainer}>
+                    <View style={styleForInputContainer}>
                         <Text style={styles.inputLabel}>Have you had any recent (within 3 months) surgery, air
                             travel {">"} 5 hours, or chemotherapy?</Text>
+
                         <Switch
                             value={formData.recentSurgery}
                             onValueChange={value => setFormData({...formData, recentSurgery: value})}
@@ -89,7 +95,7 @@ export default () => {
                     </View>
                     <Button onPress={handleSubmit(() => onSubmit(formData))}>Submit</Button>
                 </View>
-            </Card>
+            {/*</Card>*/}
         </SafeAreaView>
     );
 };
@@ -97,15 +103,30 @@ export default () => {
 const styles = StyleSheet.create({
     container: {
         alignItems: "center",
+        // justifyContent: "space-between",
         marginTop: 20,
     },
-    inputContainer: {
+    inputTabletContainer: {
         flexDirection: "row",
+        // alignItems: "center",
+        justifyContent: "space-between",
+        marginTop: 10,
+        width:650,
+        marginVertical: 8,
+
+    },
+    inputPhoneContainer: {
+        // flexDirection: "row",
         alignItems: "center",
-        marginTop: 10
+        // justifyContent: "space-between",
+        marginTop: 10,
+        paddingVertical:5
     },
     inputLabel: {
-        marginRight: 10
+        marginRight: 10,
+        textAlign: 'center',
+        fontSize: 14,
+
     },
     submitButton: {
         marginTop: 20
