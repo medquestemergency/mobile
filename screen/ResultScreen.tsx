@@ -13,7 +13,7 @@ export default () => {
     return <SafeAreaView style={{backgroundColor: "#3fcc57", flex: 1}}>
         <ScrollView>
             <Card>
-                <Card.Title>RESULTS PAGE</Card.Title>
+                <Card.Title>RESULTS</Card.Title>
                 {Object.entries(questionData).map(([key, value], index) => <ResultView name={key} formState={value}
                                                                                        key={key + index}/>)}
             </Card>
