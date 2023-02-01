@@ -25,7 +25,7 @@ export default () => {
 
 
     return <SafeAreaView style={[{backgroundColor: theme.theme.colors.primary,flex: 1},styles.container]}>
-        <Card containerStyle={{width: 600, borderRadius:30,marginTop:50}}>
+        <Card containerStyle={{width: 600, borderRadius:30}}>
             <Card.Title>Age</Card.Title>
             <TextInput
                 style={styles.input}
@@ -41,7 +41,6 @@ export default () => {
 const styles = StyleSheet.create({
     container: {
         alignItems: "center",
-        marginTop: 20,
     },
     input: {
         height: 40,
