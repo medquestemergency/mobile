@@ -87,7 +87,6 @@ export default () => {
                     <View style={styleForInputContainer}>
                         <Text style={styles.inputLabel}>Have you had any recent (within 3 months) surgery, air
                             travel {">"} 5 hours, or chemotherapy?</Text>
-
                         <Switch
                             value={formData.recentSurgery}
                             onValueChange={value => setFormData({...formData, recentSurgery: value})}
