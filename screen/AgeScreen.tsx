@@ -22,7 +22,7 @@ export default () => {
         const numericValue = value.replace(/[^0-9]/g, '');
         setInputValue(numericValue);
     };
-
+5
 
     return <SafeAreaView style={[{backgroundColor: theme.theme.colors.primary,flex: 1},styles.container]}>
         <Card containerStyle={{width: 600, borderRadius:30}}>
